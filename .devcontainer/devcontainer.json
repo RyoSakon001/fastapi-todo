@@ -1,0 +1,68 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/postgres
+{
+	"name": "Python 3 & PostgreSQL",
+	"dockerComposeFile": "compose.yaml",
+	"service": "app",
+	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	"features": {
+		"ghcr.io/dhoeric/features/hadolint:1": {},
+		"ghcr.io/lukewiwa/features/shellcheck:0": {}
+	},
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// This can be used to network with other containers or the host.
+	// "forwardPorts": [5000, 5432],
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "pip install --user -r requirements.txt",
+	// Configure tool-specific properties.
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"timonwong.shellcheck",
+				"ms-azuretools.vscode-docker",
+				"GitHub.copilot",
+				"GitHub.vscode-github-actions",
+				"donjayamanne.githistory",
+				"njpwerner.autodocstring",
+				"Gruntfuggly.todo-tree",
+				"yzhang.markdown-all-in-one",
+				"ms-vscode.makefile-tools",
+				"usernamehw.errorlens",
+				"ms-python.vscode-pylance",
+				"ms-python.flake8",
+				"ms-python.black-formatter"
+			],
+			"settings": {
+				"python.languageServer": "Pylance",
+				"python.analysis.diagnosticMode": "workspace",
+				"python.analysis.typeCheckingMode": "basic",
+				"lintOnSave": true,
+				"pylintEnabled": false,
+				"flake8Enabled": true,
+				"flake8.args": [
+					"--max-line-length=120"
+				],
+				"[python]": {
+					"editor.defaultFormatter": "ms-python.black-formatter",
+					"editor.formatOnSave": true
+				},
+				// 下記を有効にするとなぜか自動整形が効かなくなるのでコメントアウト
+				// "black-formatter.args": ["--ignore=E501"],
+				"autoDocstring.docstringFormat": "google",
+				"editor.codeActionsOnSave": {
+					"source.organizeImports": true
+				},
+				"editor.rulers": [
+					150
+				],
+				"files.insertFinalNewline": true,
+				"python.analysis.ignore": [
+					"alembic/versions/"
+				]
+			}
+		}
+	}
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
+}
