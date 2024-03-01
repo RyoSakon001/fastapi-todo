@@ -7,9 +7,10 @@
 5. 「コンテナで再度開く」を選択することで、コンテナ作成〜コンテナの中に入る作業をまとめて行ってもらう
 
 ## APIサーバー起動
-1. コマンド`make dev`を実行
-2. `INFO: Application startup complete.` と表示されることを確認
-3. http://127.0.0.1:8000/docs にアクセスし、Swaggerドキュメントが表示されることを確認
+1. コマンド`make upgrade`を実行し、DBの初期化を行う
+2. コマンド`make dev`を実行し、Webサーバーを起動
+3. `INFO: Application startup complete.` と表示されることを確認
+4. http://127.0.0.1:8000/docs にアクセスし、Swaggerドキュメントが表示されることを確認
 
 ## 公式ドキュメント等
 - [VSCode DevContainer](https://code.visualstudio.com/docs/devcontainers/tutorial)
